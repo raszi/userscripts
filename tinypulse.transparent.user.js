@@ -2,15 +2,12 @@
 // @name          TINYpulse transparent
 // @namespace     http://userscripts.org/users/20715
 // @description   Makes the TINYpulse cheer box transparent
-// @include       https://www.tinypulse.com/api/cheers*
-// @version       1.0
+// @include       https://app.tinypulse.com/api/cheers*
+// @version       1.9
 // ==/UserScript==
 
 GM_addStyle('body { background: none transparent; }');
 GM_addStyle('#mini-header { display: none; }');
-GM_addStyle('#cheers-wall { font-size: 15px; }');
-GM_addStyle('#cheers-wall .recipient, #cheers-wall .praise { margin-bottom: 15px; }');
-GM_addStyle('#cheers-wall .recipient img.gravatar { width: 60px; height: 60px; }');
-GM_addStyle('#cheers-wall .recipient .info { margin-left: 75px; }');
-GM_addStyle('#cheers-wall .recipient { line-height: 3px; }');
-GM_addStyle('.container .well { background-color: rgba(255, 255, 255, 0.6) !important; }');
+GM_addStyle('#cheers-wall-upgrade .cheer-top-content { background-color: rgba(255, 255, 255, 0.6) !important; }');
+GM_addStyle('.cheer-top-content:after { display: none; }');
+GM_addStyle('#cheers-wall-upgrade .cheer-bottom-content .info-sent-by { color: #fff; }');
