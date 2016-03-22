@@ -3,19 +3,19 @@
 // @namespace     http://userscripts.org/users/20715
 // @description   Adds option to sort by various informations.
 // @include       http://www.netpincer.hu/*hazhozszallitas*
-// @version       2.0
+// @version       2.1
 // ==/UserScript==
 
 $(function () {
   var
     doc = document,
     options = {
-      'positive': 'Ízlett',
-      'negative': 'Nem ízlett',
+      'percent':  'Százalék',
+      'feedback': 'Vélemény',
       'time':     'Kiszállítási idő',
       'min':      'Minimális rendelés',
       'delivery': 'Szállítási költség',
-      'percent':  'Százalék'
+      'rating':   'Értékelés'
     },
     orders = { '↑': false, '↓': true },
     $container = $('div.shop-list-content'),
@@ -47,15 +47,17 @@ $(function () {
 
       switch(sortType) {
         case 'percent':
-          value = parseInt($('a.show-reviews span.percent', node).text(), 10);
+          value = parseInt($('.show-reviews span.percent', node).text(), 10);
           break;
 
-        case 'positive':
-          value = parseInt($('a.show-reviews img[src*="icon_liked"]', node).parent().text(), 10);
-          break;
+        case 'rating':
+        case 'feedback':
+          var
+            values = $('.show-reviews', node).text().split(','),
+            percentage = parseInt(values[0], 10) / 100,
+            feedbacks = parseInt(values[1], 10);
 
-        case 'negative':
-          value = parseInt($('a.show-reviews img[src*="icon_not_liked"]', node).parent().text(), 10);
+          value = sortType == 'rating' ? percentage * feedbacks : feedbacks;
           break;
 
         case 'time':
