@@ -3,7 +3,8 @@
 // @namespace     http://userscripts.org/users/20715
 // @description   Makes the TINYpulse cheer box transparent
 // @include       https://app.tinypulse.com/api/cheers*
-// @version       1.9
+// @grant         GM_addStyle
+// @version       1.10
 // ==/UserScript==
 
 GM_addStyle('body { background: none transparent; }');

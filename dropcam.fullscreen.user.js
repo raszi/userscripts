@@ -3,7 +3,8 @@
 // @namespace     http://userscripts.org/users/20715
 // @description   Switches Dropcam to fullscreen
 // @include       https://www.dropcam.com/watch/*
-// @version       1.0
+// @grant         GM_addStyle
+// @version       1.1
 // ==/UserScript==
 
 GM_addStyle('.viewer .playback .video { position: fixed; top: 0; bottom: 0; left: 0; right: 0; width: 100%; height: 100%; }');
