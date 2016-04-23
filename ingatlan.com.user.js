@@ -6,7 +6,7 @@
 // @exclude     http://ingatlan.com/
 // @exclude     http://ingatlan.com/listasz/*
 // @grant       GM_addStyle
-// @version     1.0
+// @version     1.1
 // ==/UserScript==
 GM_addStyle("a.image-link { \
   display: block; \
@@ -27,10 +27,6 @@ GM_addStyle("a.image-link { \
     return cssURL ? cssURL.replace(/^url\("(.*?)"\)/, '$1') : null;
   }
 
-  function extension(url) {
-    return url.replace(/.*\.([^\.]+)$/, '$1');
-  }
-
   function searchByImage(url) {
     var params = { hl: 'en', image_url: url };
     return 'https://images.google.com/searchbyimage?'.concat($.param(params));
@@ -40,13 +36,13 @@ GM_addStyle("a.image-link { \
     return filterURL($('.image', $c).css('background-image')) || $('.helper img', $c).attr('src')
   }
 
-  function createLink(url) {
+  function createLink(url, text) {
     return $(document.createElement('a'))
       .attr({
-        href: searchByImage(url),
+        href: url,
         target: '_blank'
       })
-      .text(extension(url))
+      .text(text)
       .addClass('image-link');
   }
 
@@ -55,7 +51,7 @@ GM_addStyle("a.image-link { \
       var $holder = $(this),
           imageURL = findImageURL($holder);
 
-      createLink(imageURL).appendTo($holder);
+      createLink(searchByImage(imageURL), 'Google').appendTo($holder);
     });
   }
 
