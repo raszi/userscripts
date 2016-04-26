@@ -2,8 +2,8 @@
 // @name          Netpincer Sorting
 // @namespace     http://userscripts.org/users/20715
 // @description   Adds option to sort by various informations.
-// @include       http://www.netpincer.hu/*hazhozszallitas*
-// @version       2.1
+// @include       https://www.netpincer.hu/*hazhozszallitas*
+// @version       2.2
 // ==/UserScript==
 
 $(function () {
