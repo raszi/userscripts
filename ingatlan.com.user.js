@@ -7,7 +7,7 @@
 // @exclude     http://ingatlan.com/listasz/*
 // @require     https://cdnjs.cloudflare.com/ajax/libs/blueimp-load-image/2.6.1/load-image.all.min.js
 // @grant       GM_addStyle
-// @version     1.2
+// @version     1.3
 // ==/UserScript==
 GM_addStyle("div.image-links { \
   position: absolute; \
@@ -70,7 +70,7 @@ GM_addStyle("div.image-links a { \
   function addLinks() {
     $('.image-holder').each(function () {
       var $holder = $(this),
-          $container = findOrCreateContainer($holder),
+          $container = findOrCreateContainer($holder).empty(),
           imageURL = findImageURL($holder);
 
       loadImage.parseMetaData(imageURL, function (data) {
