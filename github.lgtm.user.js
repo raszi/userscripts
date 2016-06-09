@@ -2,29 +2,33 @@
 // @name        GitHub LGTM
 // @namespace   http://userscripts.org/users/20715
 // @description Adds a LGTM button to the code-review sreen.
-// @include     https://github*/*/pull/*
-// @version     1.0
+// @include     https://github*/*
+// @version     1.1
 // ==/UserScript==
-$(function () {
-  var $form = $('form.js-new-comment-form');
+(function ($) {
+  function addButton() {
+    var form = document.querySelector('form.js-new-comment-form');
 
-  if ($('btn-lgtm', $form).length !== 0) {
-    return;
+    if (!form || form.querySelector('.btn-lgtm')) {
+      return;
+    }
+
+    var textarea = form.querySelector('textarea'),
+        button = form.querySelector('button.btn-primary'),
+        lgtmButton = button.cloneNode(true);
+
+    lgtmButton.textContent = 'LGTM';
+    lgtmButton.classList.add('btn-secondary', 'btn-lgtm');
+    lgtmButton.classList.remove('btn-primary');
+    lgtmButton.addEventListener('click', function () {
+      textarea.value = 'LGTM';
+      button.click();
+    });
+
+    button.parentNode.appendChild(lgtmButton);
   }
 
-  var
-    $textarea = $('textarea', $form),
-    $button = $('button.btn-primary', $form);
+  addButton();
 
-  $button
-    .clone()
-    .text('LGTM')
-    .removeClass('btn-primary')
-    .addClass('btn-secondary btn-lgtm')
-    .appendTo($button.parent())
-    .on('click', function (e) {
-      e.preventDefault();
-      $textarea.val('LGTM');
-      $button.click();
-    });
-});
+  document.addEventListener('pjax:success', addButton);
+}(jQuery));
