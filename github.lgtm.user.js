@@ -3,7 +3,7 @@
 // @namespace   http://userscripts.org/users/20715
 // @description Adds a LGTM button to the code-review sreen.
 // @include     https://github*/*
-// @version     1.2
+// @version     1.3
 // ==/UserScript==
 function addButton() {
   var form = document.querySelector('form.js-new-comment-form');
@@ -27,5 +27,6 @@ function addButton() {
   button.parentNode.appendChild(lgtmButton);
 }
 
-document.addEventListener('DOMContentLoaded', addButton);
+addButton();
+
 document.addEventListener('pjax:success', addButton);
