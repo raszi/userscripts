@@ -3,7 +3,7 @@
 // @namespace     http://userscripts.org/users/20715
 // @description   Adds option to sort by various informations.
 // @include       https://www.netpincer.hu/*hazhozszallitas*
-// @version       2.2
+// @version       2.3
 // ==/UserScript==
 
 $(function () {
