@@ -82,7 +82,7 @@ $(function () {
     $caterers.detach();
 
     /* add items in the sorted order */
-    $.each(sorted, function ( i, object ) {
+    $.each(sorted, function (_i, object) {
       $(object.node).appendTo($container);
     });
 
