@@ -20,9 +20,13 @@ $(function () {
       $container = $('div.shop-list-content'),
       $caterers = $('div.shop-list-row', $container);
 
+  function parseInteger(text) {
+    return parseInt(text, 10);
+  }
+
   function parseTime(timeText) {
     var timeValues = timeText.split('-');
-    return (parseInt(timeValues[0], 10) + parseInt(timeValues[1], 10)) / 2;
+    return (parseInteger(timeValues[0]) + parseInteger(timeValues[1])) / 2;
   }
 
   function parseCurrency(currencyText) {
@@ -45,14 +49,14 @@ $(function () {
 
       switch(sortType) {
       case 'percent':
-        value = parseInt($('.show-reviews span.percent', node).text(), 10);
+        value = parseInteger($('.show-reviews span.percent', node).text());
         break;
 
       case 'rating':
       case 'feedback':
         var values = $('.show-reviews', node).text().split(','),
-            percentage = parseInt(values[0], 10) / 100,
-            feedbacks = parseInt(values[1], 10);
+            percentage = parseInteger(values[0]) / 100,
+            feedbacks = parseInteger(values[1]);
 
         value = sortType == 'rating' ? percentage * feedbacks : feedbacks;
         break;
