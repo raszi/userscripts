@@ -34,6 +34,19 @@ $(function () {
     return parseFloat(currencyValue);
   }
 
+  function safeCompare(a, b) {
+    if (!isNaN(a) && !isNaN(b)) {
+      if (a < b) return -1;
+      if (b < a) return 1;
+    } else if (isNaN(b.value)) {
+      return -1;
+    } else if (isNaN(a.value)) {
+      return 1;
+    }
+
+    return 0;
+  }
+
   /*
    * this method sorts the caterers in the selected order
    */
@@ -79,7 +92,9 @@ $(function () {
 
     /* sort it */
     var sorted = caterers.sort(function (a, b) {
-      var sortValue = (sortOrder) ? (a.value - b.value) : (b.value - a.value);
+      var sortValue = safeCompare(a.value, b.value);
+      if (!sortOrder) sortValue = sortValue * -1;
+
       return (sortValue !== 0) ? sortValue : a.name.localeCompare(b.name);
     });
 
