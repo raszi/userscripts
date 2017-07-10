@@ -31,9 +31,9 @@ $(function () {
     }
 
     var data = {
-      'jsonrpc': '2.0',
-      'method': mappedAction,
-      "id": 1
+      jsonrpc: '2.0',
+      method: mappedAction,
+      id: 1
     };
 
     $.ajax(baseURL, {
