@@ -5,7 +5,7 @@
 // @include       https://translate.google.com/*
 // @version       1.0
 // ==/UserScript==
-document.onkeypress = function (e) { 
+document.onkeypress = function (e) {
   function emulateClick(element) {
     ['mousedown', 'mouseup', 'mouseout'].forEach(function (type) {
       var event = document.createEvent('MouseEvents');
