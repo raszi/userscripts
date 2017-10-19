@@ -36,8 +36,7 @@ $(function () {
 
   function safeCompare(a, b) {
     if (!isNaN(a) && !isNaN(b)) {
-      if (a < b) return -1;
-      if (b < a) return 1;
+      return a - b;
     } else if (isNaN(b.value)) {
       return -1;
     } else if (isNaN(a.value)) {
