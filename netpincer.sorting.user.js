@@ -118,7 +118,22 @@ $(function () {
       $ul = $(doc.createElement('ul')).css({
         clear:      'both',
         padding:    '0.5em 0'
-      }).appendTo($header);
+      }).appendTo($header),
+      $sidebar = $('#filter div:contains("Hasznos") + ul'),
+      $toggleOpen = $(doc.createElement('li')).appendTo($sidebar);
+
+  $toggleOpen
+    .html(function () {
+      var openCount = $('.shop-open-details').length - $('shop-open-details.close').length;
+      return '<a href="#"><i></i>Nyitva <span>(' + openCount + ')</span></a>';
+    })
+    .on('click', function () {
+      $toggleOpen.toggleClass('selected');
+
+      $caterers.filter(function () {
+        return $('.shop-open-details', this).hasClass('close');
+      }).toggle();
+    });
 
   $.each(options, function (sortType, sortDescription) {
     var $li = $(doc.createElement('li'));
