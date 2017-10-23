@@ -45,7 +45,7 @@ GM_addStyle("div.image-links a { \
   }
 
   function findImageURL($c) {
-    return filterURL($('.image', $c).css('background-image')) || $('.helper img', $c).attr('src')
+    return filterURL($('.image', $c).css('background-image')) || $('.helper img', $c).attr('src');
   }
 
   function createLink(url, text) {
