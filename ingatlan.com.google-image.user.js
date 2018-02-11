@@ -7,7 +7,7 @@
 // @exclude     https://ingatlan.com/listasz/*
 // @require     https://cdnjs.cloudflare.com/ajax/libs/blueimp-load-image/2.6.1/load-image.all.min.js
 // @grant       GM_addStyle
-// @version     1.3
+// @version     1.4
 // ==/UserScript==
 GM_addStyle("div.image-links { \
   position: absolute; \
