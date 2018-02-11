@@ -2,9 +2,9 @@
 // @name        ingatlan.com image revealer
 // @namespace   http://userscripts.org/users/20715
 // @description Adds a link to the images
-// @include     http://ingatlan.com/*
-// @exclude     http://ingatlan.com/
-// @exclude     http://ingatlan.com/listasz/*
+// @include     https://ingatlan.com/*
+// @exclude     https://ingatlan.com/
+// @exclude     https://ingatlan.com/listasz/*
 // @require     https://cdnjs.cloudflare.com/ajax/libs/blueimp-load-image/2.6.1/load-image.all.min.js
 // @grant       GM_addStyle
 // @version     1.3
