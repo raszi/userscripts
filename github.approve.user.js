@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name        GitHub Approve
 // @namespace   http://userscripts.org/users/20715
-// @description Adds a APPROVE button to the code-review sreen.
+// @description Adds an Approve button to the code-review sreen.
 // @include     https://github*/*
 // @version     1.0
 // ==/UserScript==
