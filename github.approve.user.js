@@ -3,7 +3,7 @@
 // @namespace   http://userscripts.org/users/20715
 // @description Adds an Approve button to the code-review sreen.
 // @include     https://github*/*
-// @version     1.1
+// @version     1.2
 // ==/UserScript==
 const addButton = () => {
   const form = document.querySelector('form.js-new-comment-form');
@@ -17,7 +17,7 @@ const addButton = () => {
 
   approveButton.textContent = 'Approve';
   approveButton.classList.add('btn-secondary', 'btn-approve');
-  approveButton.classList.remove('btn-primary');
+  approveButton.classList.remove('btn-primary', 'disabled');
   approveButton.addEventListener('click', () => {
     form.querySelector('textarea').value = '/approve';
     button.click();
