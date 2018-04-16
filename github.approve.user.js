@@ -13,11 +13,15 @@ const addButton = () => {
   }
 
   const button = form.querySelector('button.btn-primary'),
-        approveButton = button.cloneNode(true);
+        approveButton = button.cloneNode(true),
+        classList = approveButton.classList;
 
   approveButton.textContent = 'Approve';
-  approveButton.classList.add('btn-secondary', 'btn-approve');
-  approveButton.classList.remove('btn-primary', 'disabled');
+  approveButton.removeAttribute('data-disable-invalid');
+
+  classList.add('btn-secondary', 'btn-approve');
+  classList.remove('btn-primary', 'disabled');
+
   approveButton.addEventListener('click', () => {
     form.querySelector('textarea').value = '/approve';
     button.click();
