@@ -1,10 +1,11 @@
 // ==UserScript==
 // @name          Google Translate Shortcuts
-// @namespace     http://userscripts.org/users/20715
+// @namespace     https://github.com/raszi/userscripts
 // @description   Google Translate Shortcuts
 // @include       https://translate.google.com/*
 // @version       1.0
 // ==/UserScript==
+
 document.onkeypress = function (e) {
   function emulateClick(element) {
     ['mousedown', 'mouseup', 'mouseout'].forEach(function (type) {
@@ -14,8 +15,7 @@ document.onkeypress = function (e) {
     });
   }
 
-  var
-    keyCode = parseInt(e.keyCode, 10),
+  var keyCode = parseInt(e.keyCode, 10),
     swapButton = document.getElementById('gt-swap');
 
   if (keyCode == 186) {

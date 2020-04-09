@@ -1,45 +1,42 @@
 // ==UserScript==
 // @name         TimeLine AutoPlay
-// @namespace    http://userscripts.org/users/20715
+// @namespace    https://github.com/raszi/userscripts
 // @description  AutoPlays a TimeLine
 // @require      https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js
 // @include      *
 // @version      1.0
 // ==/UserScript==
 
+/*eslint-env jquery*/
 $(function () {
-  var
-    _checkInterval = 2000,
+  var _checkInterval = 2000,
     _skipInterval = 3000,
     _replayInterval = 6000;
 
   function _checkTimeLine() {
-    return ($("#timelinejs").length === 1);
+    return $('#timelinejs').length === 1;
   }
 
   function _startLoop() {
-
     function _gotoNext() {
-      console.log("Next Event in TimeLine");
+      console.log('Next Event in TimeLine');
 
-      var $next = $("#timelinejs .nav-next:visible");
+      var $next = $('#timelinejs .nav-next:visible');
       if ($next.length !== 1) {
         return false;
       }
 
-      $next.trigger("click");
+      $next.trigger('click');
       return true;
     }
 
     function _gotoStart() {
-      console.log("Replay TimeLine");
+      console.log('Replay TimeLine');
 
-      $("#timelinejs .navigation .back-home")
-        .trigger("click");
+      $('#timelinejs .navigation .back-home').trigger('click');
     }
 
     (function _playForever() {
-
       if (_gotoNext()) {
         setTimeout(_playForever, _skipInterval);
         return;
@@ -47,11 +44,11 @@ $(function () {
 
       _gotoStart();
       setTimeout(_playForever, _replayInterval);
-    }());
+    })();
   }
 
   (function _checkTimeLineExistance() {
-    console.log("Checking!");
+    console.log('Checking!');
 
     if (_checkTimeLine()) {
       _startLoop();
@@ -59,6 +56,5 @@ $(function () {
     }
 
     setTimeout(_checkTimeLineExistance, _checkInterval);
-  }());
-
+  })();
 });

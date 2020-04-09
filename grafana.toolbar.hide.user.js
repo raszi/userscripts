@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name          Grafana Toolbar Hider
-// @namespace     http://userscripts.org/users/20715
+// @namespace     https://github.com/raszi/userscripts
 // @description   Hides the Grafana toolbar
 // @include       https://grafana*
 // @grant         GM_addStyle

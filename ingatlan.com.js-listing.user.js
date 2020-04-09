@@ -1,15 +1,20 @@
 // ==UserScript==
 // @name        ingatlan.com JS listing remover
-// @namespace   http://userscripts.org/users/20715
-// @version     1.0
+// @namespace   https://github.com/raszi/userscripts
+// @version     1.1
 // @description Removes the annoying JS listing shower
 // @author      KARASZI István <github@spam.raszi.hu>
 // @match       https://ingatlan.com/lista/*
+// @match       https://ingatlan.com/szukites/*
 // @grant       none
 // ==/UserScript==
 
+/*eslint-env jquery*/
 (function ($) {
   'use strict';
 
-  $('.js-listing-active-area').off('click');
-}(jQuery));
+  const removeListingHandler = () => $('.js-listing-active-area').off('click');
+  removeListingHandler();
+
+  window.onpopstate = removeListingHandler;
+})(jQuery);

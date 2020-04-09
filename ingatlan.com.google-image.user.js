@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name        ingatlan.com image revealer
-// @namespace   http://userscripts.org/users/20715
+// @namespace   https://github.com/raszi/userscripts
 // @description Adds a link to the images
 // @include     https://ingatlan.com/*
 // @exclude     https://ingatlan.com/
@@ -9,14 +9,18 @@
 // @grant       GM_addStyle
 // @version     1.4
 // ==/UserScript==
-GM_addStyle("div.image-links { \
+
+/*eslint-env jquery*/
+/* global loadImage */
+GM_addStyle('div.image-links { \
   position: absolute; \
   bottom: 4px; \
   right: 4px; \
   z-index: 10; \
-}");
+}');
 
-GM_addStyle("div.image-links a { \
+GM_addStyle(
+  "div.image-links a { \
   display: inline-block; \
   padding: 3px; \
   margin-left: 3px; \
@@ -25,7 +29,8 @@ GM_addStyle("div.image-links a { \
   border-radius: 2px; \
   border: solid 1px #555; \
   font: 700 12px monaco, Consolas, 'Lucida Console', monospace; \
-}");
+}"
+);
 
 (function ($) {
   function filterURL(cssURL) {
@@ -49,10 +54,7 @@ GM_addStyle("div.image-links a { \
   }
 
   function createLink(url, text) {
-    return $(document.createElement('a'))
-      .attr({ href: url, target: '_blank' })
-      .text(text)
-      .addClass('image-link');
+    return $(document.createElement('a')).attr({ href: url, target: '_blank' }).text(text).addClass('image-link');
   }
 
   function findOrCreateContainer($holder) {
@@ -62,29 +64,25 @@ GM_addStyle("div.image-links a { \
       return $container;
     }
 
-    return $(document.createElement('div'))
-      .addClass('image-links')
-      .appendTo($holder);
+    return $(document.createElement('div')).addClass('image-links').appendTo($holder);
   }
 
   function addLinks() {
     $('.image-holder').each(function () {
       var $holder = $(this),
-          $container = findOrCreateContainer($holder).empty(),
-          imageURL = findImageURL($holder);
+        $container = findOrCreateContainer($holder).empty(),
+        imageURL = findImageURL($holder);
 
       loadImage.parseMetaData(imageURL, function (data) {
         if (data.exif) {
           var lat = data.exif.get('GPSLatitude'),
-              lon = data.exif.get('GPSLongitude');
+            lon = data.exif.get('GPSLongitude');
 
-          createLink(searchByLocation(lat, lon), 'Map')
-            .appendTo($container);
+          createLink(searchByLocation(lat, lon), 'Map').appendTo($container);
         }
       });
 
-      createLink(searchByImage(imageURL), 'Google')
-        .appendTo($container);
+      createLink(searchByImage(imageURL), 'Google').appendTo($container);
     });
   }
 
@@ -93,4 +91,4 @@ GM_addStyle("div.image-links a { \
   $('.photo-paginate').on('click', function () {
     setTimeout(addLinks, 250);
   });
-}(jQuery));
+})(jQuery);
