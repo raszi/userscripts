@@ -1,9 +1,9 @@
 // ==UserScript==
-// @name        PagerDuty Summary Collector
-// @namespace   https://github.com/raszi/userscripts
-// @description Collects the summary to the LocalStorage
-// @include     https://*.pagerduty.com/incidents/*
-// @version     1.0
+// @name          PagerDuty Summary Collector
+// @namespace     https://github.com/raszi/userscripts
+// @description   Collects the summary to the LocalStorage
+// @include       https://*.pagerduty.com/incidents/*
+// @version       1.0
 // ==/UserScript==
 (($) =>
   $(() => {

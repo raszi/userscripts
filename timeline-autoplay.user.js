@@ -1,10 +1,10 @@
 // ==UserScript==
-// @name         TimeLine AutoPlay
-// @namespace    https://github.com/raszi/userscripts
-// @description  AutoPlays a TimeLine
-// @require      https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js
-// @include      *
-// @version      1.0
+// @name          TimeLine AutoPlay
+// @namespace     https://github.com/raszi/userscripts
+// @description   AutoPlays a TimeLine
+// @require       https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js
+// @include       *
+// @version       1.0
 // ==/UserScript==
 
 /*eslint-env jquery*/

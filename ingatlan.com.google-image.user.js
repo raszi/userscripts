@@ -1,13 +1,13 @@
 // ==UserScript==
-// @name        ingatlan.com image revealer
-// @namespace   https://github.com/raszi/userscripts
-// @description Adds a link to the images
-// @include     https://ingatlan.com/*
-// @exclude     https://ingatlan.com/
-// @exclude     https://ingatlan.com/listasz/*
-// @require     https://cdnjs.cloudflare.com/ajax/libs/blueimp-load-image/2.6.1/load-image.all.min.js
-// @grant       GM_addStyle
-// @version     1.4
+// @name          ingatlan.com image revealer
+// @namespace     https://github.com/raszi/userscripts
+// @description   Adds a link to the images
+// @include       https://ingatlan.com/*
+// @exclude       https://ingatlan.com/
+// @exclude       https://ingatlan.com/listasz/*
+// @require       https://cdnjs.cloudflare.com/ajax/libs/blueimp-load-image/2.6.1/load-image.all.min.js
+// @grant         GM_addStyle
+// @version       1.4
 // ==/UserScript==
 
 /*eslint-env jquery*/
