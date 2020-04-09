@@ -1,0 +1,40 @@
+{
+  "name": "raszi-userscripts",
+  "version": "0.1.0",
+  "description": "My personal userscripts collection",
+  "main": ".eslintrc.js",
+  "scripts": {
+    "lint": "eslint .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/raszi/userscripts.git"
+  },
+  "keywords": [
+    "userscripts",
+    "greasemonkey",
+    "tampermonkey"
+  ],
+  "author": "István Karaszi",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/raszi/userscripts/issues"
+  },
+  "homepage": "https://github.com/raszi/userscripts#readme",
+  "devDependencies": {
+    "eslint": "^6.8.0"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "browser": true,
+      "es2017": true,
+      "greasemonkey": true
+    },
+    "extends": "eslint:recommended",
+    "parserOptions": {
+      "ecmaVersion": 2018
+    }
+  }
+}
