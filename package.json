@@ -23,7 +23,7 @@
   },
   "homepage": "https://github.com/raszi/userscripts#readme",
   "devDependencies": {
-    "eslint": "^6.8.0"
+    "eslint": "^7.5.0"
   },
   "eslintConfig": {
     "root": true,
