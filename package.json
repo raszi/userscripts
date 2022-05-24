@@ -23,7 +23,8 @@
   },
   "homepage": "https://github.com/raszi/userscripts#readme",
   "devDependencies": {
-    "eslint": "^8.16.0"
+    "eslint": "^8.16.0",
+    "prettier": "^2.6.2"
   },
   "eslintConfig": {
     "root": true,
@@ -36,5 +37,9 @@
     "parserOptions": {
       "ecmaVersion": 2018
     }
+  },
+  "prettier": {
+    "printWidth": 120,
+    "singleQuote": true
   }
 }
