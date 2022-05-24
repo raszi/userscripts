@@ -18,7 +18,7 @@ $(function () {
       39: 'Input.Right',
       40: 'Input.Down',
       67: 'Input.ContextMenu',
-      79: 'Input.ShowOSD'
+      79: 'Input.ShowOSD',
     };
 
   $(document).keydown(function (event) {
@@ -32,14 +32,14 @@ $(function () {
     var data = {
       jsonrpc: '2.0',
       method: mappedAction,
-      id: 1
+      id: 1,
     };
 
     $.ajax(baseURL, {
       type: 'POST',
       contentType: 'application/json',
       dataType: 'json',
-      data: JSON.stringify(data)
+      data: JSON.stringify(data),
     });
 
     event.stopPropagation();

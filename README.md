@@ -1,4 +1,3 @@
-userscripts
-===========
+# userscripts
 
 My usercripts collection

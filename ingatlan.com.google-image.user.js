@@ -42,11 +42,17 @@ GM_addStyle(
   }
 
   function searchByImage(url) {
-    return genLink('https://images.google.com/searchbyimage?', { hl: 'en', image_url: url });
+    return genLink('https://images.google.com/searchbyimage?', {
+      hl: 'en',
+      image_url: url,
+    });
   }
 
   function searchByLocation(lat, lon) {
-    return genLink('https://maps.google.com/maps?', { hl: 'en', ll: [lat, lon].join(',') });
+    return genLink('https://maps.google.com/maps?', {
+      hl: 'en',
+      ll: [lat, lon].join(','),
+    });
   }
 
   function findImageURL($c) {
