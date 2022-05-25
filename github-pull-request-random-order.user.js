@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         GitHub Code Review Random Order
 // @namespace    https://github.com/raszi/userscripts
-// @version      0.1
+// @version      0.2
 // @description  Randomizes the order of the files in a code review
 // @author       István Karaszi
 // @match        https://github.com/*
@@ -21,18 +21,18 @@
   const randomizeFileOrder = () => {
     console.log('Randomize');
 
-    const [container] = $x('//*[contains(@class, "js-diff-progressive-container")]');
+    $x('//*[contains(@class, "js-diff-progressive-container")]').forEach((container) => {
+      if (container.classList.contains('randomized')) {
+        console.log('Already randomized');
+        return;
+      }
 
-    if (!container || container.classList.contains('randomized')) {
-      console.log('Already randomized');
-      return;
-    }
+      $x('*[contains(@class, "js-file")]', container).forEach((_node, i) => {
+        container.appendChild(container.children[(Math.random() * i) | 0]);
+      });
 
-    $x('*[contains(@class, "js-file")]', container).forEach((_node, i) => {
-      container.appendChild(container.children[(Math.random() * i) | 0]);
-    });
-
-    container.classList.add('randomized');
+      container.classList.add('randomized');
+    })
   };
 
   randomizeFileOrder();
